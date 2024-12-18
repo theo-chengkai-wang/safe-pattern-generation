@@ -147,7 +147,7 @@ dune exec ./power.exe
     ]
 }
 ```
-- Use the script below to generate initial `.merlin` file for every directory with source files
+- Use sth like the script below to generate initial `.merlin` file for every directory with source files
 ```bash
 folders=(all/dir/with/file)
 
@@ -156,7 +156,7 @@ do
     dune ocaml dump-dot-merlin $f | sed '/^INDEX/d' > ./$f/.merlin && echo "REC" >> ./$f/.merlin;
 done
 ```
-- At the top level, add a `.merlin` file with the following to add support for Metaprogramming things.
+- At the top level, add a `.merlin` file with the result of the command above + the following to add support for Metaprogramming things (see [article here](https://qiita.com/keigoi/items/c9f43309312978acf05a)).
 ```
 EXT meta
 FLG -open Trx
