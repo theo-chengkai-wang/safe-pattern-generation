@@ -127,3 +127,37 @@ Navigate to the `power_example` directory. Then run:
 ```bash
 dune exec ./power.exe
 ```
+
+## Configuration Notes
+
+### Configuring Dune
+
+- Download BER MetaOCaml as instructed.
+- Install `dune`,
+- Install `ocamlfind` to be able to find the `metaocaml` library.
+
+### Configuring Development Environment in VSCode
+
+- Install `ocaml-lsp-server` and `merlin`.
+- Add in `settings.json` the following to make the OCaml LSP server use dot-merlin files: 
+```json
+{
+    "ocaml.server.args": [
+        "--fallback-read-dot-merlin"
+    ]
+}
+```
+- Use the script below to generate initial `.merlin` file for every directory with source files
+```bash
+folders=(all/dir/with/file)
+
+for f in ${folders[@]}
+do
+    dune ocaml dump-dot-merlin $f | sed '/^INDEX/d' > ./$f/.merlin && echo "REC" >> ./$f/.merlin;
+done
+```
+- At the top level, add a `.merlin` file with the following to add support for Metaprogramming things.
+```
+EXT meta
+FLG -open Trx
+```

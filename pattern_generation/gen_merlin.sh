@@ -9,5 +9,5 @@ folders=(bench
 
 for f in ${folders[@]}
 do
-    dune ocaml dump-dot-merlin $f > ./$f/.merlin && echo "REC" >> ./$f/.merlin
+    dune ocaml dump-dot-merlin $f | sed '/^INDEX/d' > ./$f/.merlin && echo "REC" >> ./$f/.merlin;
 done
