@@ -2,3 +2,8 @@
  (name test)
  (libraries dynlink metaocaml)
  (modules test power))
+
+
+(env
+  (dev
+    (flags (:standard -w -66))))

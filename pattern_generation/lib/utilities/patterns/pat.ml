@@ -1,5 +1,5 @@
-open Trx;;
-open Common;;
+open Trx
+open Common
 
 (* Common import *)
 
