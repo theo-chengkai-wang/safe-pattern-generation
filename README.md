@@ -138,7 +138,8 @@ dune exec ./power.exe
 
 ### Configuring Development Environment in VSCode
 
-- Install `ocaml-lsp-server` and `merlin`.
+- Make sure your dune version is 3.4.1
+- Install `ocaml-lsp-server` and `merlin`. 
 - Add in `settings.json` the following to make the OCaml LSP server use dot-merlin files: 
 ```json
 {
