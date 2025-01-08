@@ -1,7 +1,7 @@
 (executable
- (name test)
+ (name power)
  (libraries dynlink metaocaml)
- (modules test power))
+ (modules power test))
 
 
 (env
